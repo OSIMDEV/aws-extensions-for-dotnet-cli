@@ -174,6 +174,11 @@ namespace Amazon.Lambda.Tools.TemplateProcessor
             {
                 return this.DataSource.GetValueFromResource("Metadata", "DockerTag");
             }
+
+            public Dictionary<string, string> GetMetadataDockeBuildArgs()
+            {
+                return this.DataSource.GetValueDictionaryFromResource("Metadata", "DockerBuildArgs");
+            }
         }
     }
 }
