@@ -167,20 +167,20 @@ namespace Amazon.Lambda.Tools.TemplateProcessor
                 if (node == null || !node.IsObject || node.Count == 0)
                     return null;
 
-                var dictonary = new Dictionary<string, string>(node.Count);
+                var dictionary = new Dictionary<string, string>(node.Count);
                 foreach (string key in node.PropertyNames)
                 {
-                    if (dictonary.ContainsKey(key))
+                    if (dictionary.ContainsKey(key))
                     {
-                        dictonary[key] = node[key]?.ToString();
+                        dictionary[key] = node[key]?.ToString();
                     }
                     else
                     {
-                        dictonary.Add(key, node[key]?.ToString());
+                        dictionary.Add(key, node[key]?.ToString());
                     }
                 }
 
-                return dictonary;
+                return dictionary;
             }
         }
     }

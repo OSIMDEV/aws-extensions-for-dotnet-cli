@@ -207,20 +207,20 @@ namespace Amazon.Lambda.Tools.TemplateProcessor
                     if (mappingNode.Children.Count == 0)
                         return null;
 
-                    Dictionary<string, string> dictonary = new Dictionary<string, string>(mappingNode.Children.Count);
+                    Dictionary<string, string> dictionary = new Dictionary<string, string>(mappingNode.Children.Count);
                     foreach (var key in mappingNode.Children.Keys)
                     {
-                        if (dictonary.ContainsKey(key.ToString()))
+                        if (dictionary.ContainsKey(key.ToString()))
                         {
-                            dictonary[key.ToString()] = mappingNode.Children[key]?.ToString();
+                            dictionary[key.ToString()] = mappingNode.Children[key]?.ToString();
                         }
                         else
                         {
-                            dictonary.Add(key.ToString(), mappingNode.Children[key]?.ToString());
+                            dictionary.Add(key.ToString(), mappingNode.Children[key]?.ToString());
                         }
                     }
 
-                    return dictonary;
+                    return dictionary;
                 }
 
                 return null;
